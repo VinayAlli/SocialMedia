@@ -1,38 +1,86 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navbar{
   color: white;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -5px;
+  font-family: 'Nunito', sans-serif;
+font-family: 'Victor Mono', monospace;
 }
 
-.App-link {
-  color: #61dafb;
+.main, .login{
+  padding: 50px;
+  font-family: 'Dancing Script', cursive;
+font-family: 'Nunito', sans-serif;
+font-family: 'PT Serif', serif;
+font-family: 'Victor Mono', monospace;
+font-family: 'VT323', monospace;
+}
+/*post*/
+/*post*/
+.card{
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 50px;
+  box-shadow: 10px 10px 10px;
+  
+}
+.card:hover {
+  transform: translateY(-5px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  .form{
+    background-color: blueviolet;
+    padding: 70px;
+    border-color: black;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    margin-left: 225px;
+    margin-right: 225px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar{
+    display: flex;
+    flex-direction: row;
+  }
+  .profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile img{
+    width: 70px;
+    height: 50px;
+  }
+  .form{
+    background-color: blueviolet;
+    padding: 25px;
+    border-color: black;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 0.5px;
+    margin-right: 0.5px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  .card{
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
