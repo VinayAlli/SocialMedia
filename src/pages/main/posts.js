@@ -2,6 +2,8 @@ import { addDoc,getDocs,collection,query,where,deleteDoc,doc} from "firebase/fir
 import { db,auth } from "../../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect,useState } from "react"
+import toast, { Toaster } from 'react-hot-toast';
+
 export const Post=(props)=>{
     const [user]=useAuthState(auth);
     const [like,setLike]=useState(null)
@@ -52,6 +54,7 @@ export const Post=(props)=>{
                     (prev) => prev && prev.filter((like) => like.likeId !== likeId)
                     );
                 }
+                
         } 
         catch (err){
             console.log("error")
@@ -63,12 +66,15 @@ export const Post=(props)=>{
     useEffect(() => {
       getLikes()
     }, [])
-    
+    const dec1=hasuserliked ? removeLike : addLike
+    const dec2=()=>{
+      toast.error("Login to like.");
+    }
     return(
         <>
         <div class="card">
           <div class="card-header">
-            <div className="title"><h1>{props.post.title}</h1></div>
+            <div className="title"><h2>{props.post.title}</h2></div>
             <div className="footer"><p>@{props.post.username}</p></div>
           </div>
           <div class="card-body">
@@ -76,11 +82,14 @@ export const Post=(props)=>{
           </div>
           <div class="card-footer">
             
-            <button onClick={hasuserliked ? removeLike : addLike}>
+            <button onClick={user?dec1:dec2}>
             {hasuserliked ? <>&#128078;</> : <>&#128077;</>}{" "}
             </button>
             {like&&<p>Likes : {like.length}</p>}
+            
           </div>
+          <Toaster position="top-center" 
+                reverseOrder={true} />
         </div>
           
           

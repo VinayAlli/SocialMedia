@@ -7,7 +7,6 @@ import { addDoc,collection } from "firebase/firestore";
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { useNavigate } from "react-router-dom";
 
-
 export const CreateForm=()=>{
     const [user]=useAuthState(auth);
     const navigate=useNavigate();
